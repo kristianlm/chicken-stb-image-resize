@@ -41,19 +41,19 @@
   0 ;; TODO
   )
 
-(define (stb-image-resize pixels width height channels
-                          width-out height-out
-                          #!key
-                          (colorspace 'srgb)
-                          (flags '())
-                          (edge-mode-horizontal 'clamp)
-                          (edge-mode-vertical   'clamp)
-                          (alpha-channel 0)
-                          (filter 'mitchell)
-                          (filter-horizontal filter)
-                          (filter-vertical filter)
-                          (stride 0) (stride-out 0)
-                          (region '#(0 0 1 1)))
+(define (image-resize pixels width height channels
+                      width-out height-out
+                      #!key
+                      (colorspace 'srgb)
+                      (flags '())
+                      (edge-mode-horizontal 'clamp)
+                      (edge-mode-vertical   'clamp)
+                      (alpha-channel 0)
+                      (filter 'mitchell)
+                      (filter-horizontal filter)
+                      (filter-vertical filter)
+                      (stride 0) (stride-out 0)
+                      (region '#(0 0 1 1)))
 
   (define pixels-out
     (cond ((u8vector?  pixels) (make-u8vector (* width-out height-out channels)))

@@ -1,4 +1,4 @@
-(module stb-image-resize (stb-image-resize)
+(module stb-image-resize (image-resize)
 (import scheme chicken foreign)
 (use srfi-4)
 (include "stb-image-resize.scm"))
