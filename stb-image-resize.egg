@@ -1,0 +1,6 @@
+;; -*- scheme -*-
+((author "Kristian Lein-Mathisen")
+ (license public-domain)
+ (dependencies srfi-4)
+ (components (extension stb-image-resize
+			(source "stb-image-resize-module5.scm"))))

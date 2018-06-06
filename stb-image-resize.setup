@@ -1,0 +1,4 @@
+;; -*- scheme -*-
+(compile -s -J stb-image-resize-module4.scm -o "stb-image-resize.so")
+(compile -s "stb-image-resize.import.scm")
+(install-extension 'stb-image-resize '("stb-image-resize.so" "stb-image-resize.import.so"))

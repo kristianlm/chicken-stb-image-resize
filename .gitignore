@@ -1,0 +1,7 @@
+/stb-image-resize.so
+/stb-image-resize.static.o
+/stb-image-resize.link
+/stb-image-resize.install.sh
+/stb-image-resize.import.so
+/stb-image-resize.import.scm
+/stb-image-resize.build.sh

@@ -1,0 +1,7 @@
+;; -*- scheme -*-
+((author "Kristian Lein-Mathisen")
+ (license "public domain")
+ (synopsis "resize raw u8/u16/u32/f32-vector images")
+ ;; srfi-4 is in core in chicken 4
+ (test-depends test)
+ (category graphics))
