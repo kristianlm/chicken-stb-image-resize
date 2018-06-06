@@ -19,14 +19,6 @@
     ((zero)    (foreign-value "STBIR_EDGE_ZERO" int))
     (else (error "edge-mode not one of (clamp reflect wrap zero)" edge))))
 
-(define (datatype->int datatype)
-  (case datatype
-    ((u8)  (foreign-value "STBIR_TYPE_UINT8"  int))
-    ((u16) (foreign-value "STBIR_TYPE_UINT16" int))
-    ((u32) (foreign-value "STBIR_TYPE_UINT32" int))
-    ((f32) (foreign-value "STBIR_TYPE_FLOAT" int))
-    (else (error "datatype not one of (u8 u16 u32 f32)" datatype))))
-
 (define (filter->int filter)
   (case filter
     ((box) (foreign-value "STBIR_FILTER_BOX" int))
@@ -129,10 +121,10 @@
      stride-out
 
      ;; datatype
-     (cond ((u8vector? pixels) (datatype->int 'u8))
-           ((u16vector? pixels) (datatype->int 'u16))
-           ((u32vector? pixels) (datatype->int 'u32))
-           ((f32vector? pixels) (datatype->int 'f32)))
+     (cond ((u8vector? pixels) (foreign-value "STBIR_TYPE_UINT8" int))
+           ((u16vector? pixels) (foreign-value "STBIR_TYPE_UINT16" int))
+           ((u32vector? pixels) (foreign-value "STBIR_TYPE_UINT32" int))
+           ((f32vector? pixels) (foreign-value "STBIR_TYPE_FLOAT" int)))
 
      channels
      alpha-channel
