@@ -132,7 +132,7 @@
      (cond ((u8vector? pixels) (datatype->int 'u8))
            ((u16vector? pixels) (datatype->int 'u16))
            ((u32vector? pixels) (datatype->int 'u32))
-           ((f32vector? pixels) (datatype->int 'u32)))
+           ((f32vector? pixels) (datatype->int 'f32)))
 
      channels
      alpha-channel

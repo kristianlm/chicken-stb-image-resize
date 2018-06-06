@@ -23,8 +23,8 @@
 
  (test
   "scale down box filter f32"
-  (f32vector 2)
-  (image-resize (f32vector 1 4) 2 1 1  1 1 filter: 'box)))
+  (f32vector 1e40)
+  (image-resize (f32vector 0 2e40) 2 1 1  1 1 filter: 'box)))
 
 (test-group
  "scale up"
@@ -53,13 +53,14 @@
                     16 1  ;; desintation w h
                     filter: 'box))
 
- (test
-  "scale up box filter f32"
-  (f32vector 0 0 0 0 0 0 0 0 16 16 16 16 16 16 16 16)
-  (image-resize (f32vector 0 16)
-                    2 1 1 ;; w h channels
-                    16 1  ;; desintation w h
-                    filter: 'box)))
+ (let ((big 1e40))
+   (test
+    "scale up box filter f32"
+    (f32vector 0 0 0 0 0 0 0 0 big big big big big big big big)
+    (image-resize (f32vector 0 big)
+                  2 1 1 ;; w h channels
+                  16 1  ;; desintation w h
+                  filter: 'box))))
 
 (test-group
  "filters"
