@@ -111,3 +111,5 @@
   (u8vector 1 2 3 0)
   (image-resize (u8vector 1 2 3 0   1 2 3 0)
                     2 1 4  1 1)))
+
+(test-exit)
