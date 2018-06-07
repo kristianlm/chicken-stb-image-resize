@@ -15,7 +15,8 @@ Takes in raw `pixels` (a srfi-4 u8/u16/u32/f32vector) of size
 returned type is the same as `pixels`' of size
 `target-width`*`target-height`*`channels`.
 
-`channels` must be 1, 2, 3 or 4.
+`channels` must be an integer between 0 and 64 and keys are processed
+as follows.
 
 - `filter:` one of `box`, `triangle`, `cubicbspline`, `catmullrom` or
   the default `mitchell`.
