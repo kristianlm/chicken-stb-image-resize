@@ -100,17 +100,20 @@
                     region: (vector #i2/5 #i1/4  #i4/5 #i3/4))))
 
 (test-group
- "channels"
- (test
-  "3 channels"
-  (u8vector 1 2 3)
-  (image-resize (u8vector 1 2 3  1 2 3)
-                    2 1 3  1 1))
+ "3 channels"
 
  (test
-  "4 channels"
-  (u8vector 1 2 3 0)
-  (image-resize (u8vector 1 2 3 0   1 2 3 0)
-                    2 1 4  1 1)))
+  "3 channels u8"
+  (let ((j 64))
+    (u8vector j j j  j 0 0
+              0 j 0  0 0 j))
+  (image-resize
+   (let ((i 255))
+     (u8vector i i i    0 0 0    0 0 0   i 0 0
+               0 0 0    0 0 0    0 0 0   0 0 0
+               0 0 0    0 0 0    0 0 0   0 0 0
+               0 i 0    0 0 0    0 0 0   0 0 i))
+   4 4 3  2 2
+   filter: 'box)))
 
 (test-exit)

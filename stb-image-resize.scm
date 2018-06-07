@@ -40,7 +40,7 @@
                       (flags '())
                       (edge-mode-horizontal 'clamp)
                       (edge-mode-vertical   'clamp)
-                      (alpha-channel 0)
+                      (alpha-channel #f)
                       (filter 'mitchell)
                       (filter-horizontal filter)
                       (filter-vertical filter)
@@ -127,7 +127,9 @@
            ((f32vector? pixels) (foreign-value "STBIR_TYPE_FLOAT" int)))
 
      channels
-     alpha-channel
+
+     ;; index of alpha channel
+     (or alpha-channel (foreign-value "STBIR_ALPHA_CHANNEL_NONE" int))
      (flags->int flags)
      (edge->int edge-mode-horizontal)
      (edge->int edge-mode-vertical)
