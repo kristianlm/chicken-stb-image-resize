@@ -1,7 +1,7 @@
   [CHICKEN]: http://call-cc.org
   [stb_image_resize.h]: https://github.com/nothings/stb
 
-# chicken-stb-image
+# stb-image-resize
 
 This is a [CHICKEN] egg that wraps [stb_image_resize.h] version 0.95
 from Jorge L Rodriguez and friends. It works on [CHICKEN] 4 and 5.
@@ -29,6 +29,12 @@ as follows.
 - `alpha-channel:` index of channel which is the alpha channel in the
   image. supply `#f` (default) for no alpha channel.
 
-## Example
+# Examples
+
+```
+$ csi -R stb-image-resize -p '(image-resize (f32vector 0 4 8) 3 1 1   1 1)'
+#f32(4.0)
+```
 
 See `example.scm` for a thumbnail creation example.
+
