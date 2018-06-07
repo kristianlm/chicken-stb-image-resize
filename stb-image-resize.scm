@@ -46,6 +46,27 @@
                       (stride 0) (stride-out 0)
                       (region '#(0 0 1 1)))
 
+  ;; need explicit memory check since not done below
+  (let ((size (cond ((u8vector? pixels)  (u8vector-length pixels))
+                    ((u16vector? pixels) (u16vector-length pixels))
+                    ((u32vector? pixels) (u32vector-length pixels))
+                    ((f32vector? pixels) (f32vector-length pixels))))
+        (need (* width height channels)))
+    (unless (>= size need)
+      (error (conc "not enough pixels for " width "*" height "*" channels " (need " need ")")
+             size)))
+
+  ;; avoid killer stb_image_resize assertions
+  (let ((max-channels (foreign-value "STBIR_MAX_CHANNELS" int)))
+    (unless (and (> channels 0)
+                 (<= channels max-channels))
+      (error (conc "invalid channel count (1-" max-channels ")")
+             channels)))
+
+  (unless (or (not alpha-channel) (< alpha-channel channels))
+    (error (conc "invalid alpha-channel for " channels "-channel image")
+           alpha-channel))
+
   (define pixels-out
     (cond ((u8vector?  pixels) (make-u8vector (* width-out height-out channels)))
           ((u16vector? pixels) (make-u16vector (* width-out height-out channels)))
