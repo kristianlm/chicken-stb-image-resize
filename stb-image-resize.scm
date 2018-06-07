@@ -9,8 +9,6 @@
 #include \"stb_image_resize.h\"
 ")
 
-(define (flags->int flags) 0) ;; TODO
-
 (define (edge->int edge)
   (case edge
     ((clamp)   (foreign-value "STBIR_EDGE_CLAMP" int))
@@ -37,7 +35,7 @@
                       width-out height-out
                       #!key
                       (colorspace 'srgb)
-                      (flags '())
+                      (premultiplied #f)
                       (edge-mode-horizontal 'clamp)
                       (edge-mode-vertical   'clamp)
                       (alpha-channel #f)
@@ -130,7 +128,12 @@
 
      ;; index of alpha channel
      (or alpha-channel (foreign-value "STBIR_ALPHA_CHANNEL_NONE" int))
-     (flags->int flags)
+
+     ;; flags
+     (+ (if premultiplied
+            (foreign-value "STBIR_FLAG_ALPHA_PREMULTIPLIED" int)
+            0))
+
      (edge->int edge-mode-horizontal)
      (edge->int edge-mode-vertical)
      (filter->int filter-horizontal)
