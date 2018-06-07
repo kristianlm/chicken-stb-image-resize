@@ -19,7 +19,8 @@ returned type is the same as `pixels`' of size
 as follows.
 
 - `filter:` one of `box`, `triangle`, `cubicbspline`, `catmullrom` or
-  the default `mitchell`.
+  `mitchell`. The default uses `catmullrom` for up-sampling and
+  `mitchell` for down-sampling.
 - `region:` a vector of 4 elements `s0 t0 s1 t1`, representing the
   UV-coordinates to use as source image. This can be used to crop the
   image. These values must be in the range of `[0, 1]` and represent

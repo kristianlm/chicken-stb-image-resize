@@ -19,6 +19,7 @@
 
 (define (filter->int filter)
   (case filter
+    ((default) (foreign-value "STBIR_FILTER_DEFAULT" int))
     ((box) (foreign-value "STBIR_FILTER_BOX" int))
     ((triangle) (foreign-value "STBIR_FILTER_TRIANGLE" int))
     ((cubicbspline) (foreign-value "STBIR_FILTER_CUBICBSPLINE" int))
@@ -39,7 +40,7 @@
                       (edge-mode-horizontal 'clamp)
                       (edge-mode-vertical   'clamp)
                       (alpha-channel #f)
-                      (filter 'mitchell)
+                      (filter 'default)
                       (filter-horizontal filter)
                       (filter-vertical filter)
                       (stride 0) (stride-out 0)
