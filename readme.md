@@ -28,3 +28,7 @@ as follows.
   off the right half of the image.
 - `alpha-channel:` index of channel which is the alpha channel in the
   image. supply `#f` (default) for no alpha channel.
+
+## Example
+
+See `example.scm` for a thumbnail creation example.
