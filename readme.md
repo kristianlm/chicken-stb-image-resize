@@ -32,7 +32,7 @@ as follows.
 # Examples
 
 ```
-$ csi -R stb-image-resize -p '(image-resize (f32vector 0 4 8) 3 1 1   1 1)'
+$ csi -R srfi-4 -R stb-image-resize -p '(image-resize (f32vector 0 4 8) 3 1 1   1 1)'
 #f32(4.0)
 ```
 

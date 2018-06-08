@@ -1,4 +1,6 @@
-(use stb-image stb-image-write stb-image-resize)
+(cond-expand
+ (chicken-5 (import srfi-4 stb-image stb-image-write stb-image-resize))
+ (else (use srfi-4 stb-image stb-image-write stb-image-resize)))
 
 (unless (pair? (command-line-arguments))
   (display "usage: csi -s example.scm <image>
