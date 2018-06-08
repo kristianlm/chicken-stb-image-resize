@@ -4,7 +4,10 @@
 
 (unless (pair? (command-line-arguments))
   (display "usage: csi -s example.scm <image>
-prints png image thumbnail to stdout\n" (current-error-port))
+prints png image thumbnail to stdout.
+looking for an easy test image? try:
+    convert -pointsize 200 caption:\"test image for stb-image-resize\" test.png
+" (current-error-port))
   (exit))
 
 (receive (pixels w h c)
