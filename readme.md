@@ -31,10 +31,15 @@ as follows.
 
 # Examples
 
+You can try `example-thumbnail.scm` like this:
+
+![screenshot of running example-thumbnail.scm](example.png?raw=true)
+
+Or turn a 4x1 greyscale image into a single pixel like this:
+
 ```
 $ csi -R srfi-4 -R stb-image-resize -p '(image-resize (f32vector 0 4 8) 3 1 1   1 1)'
 #f32(4.0)
 ```
 
-See `example-thumbnail.scm` for a thumbnail creation example.
 
