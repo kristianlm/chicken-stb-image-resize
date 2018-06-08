@@ -16,6 +16,5 @@ looking for an easy test image? try:
   (let* ((w2 64)
          (h2 (inexact->exact (floor (* h (/ w2 w)))))
          (_ (display (conc w2 "*" h2 "*" c "\n") (current-error-port)))
-         (resized (image-resize (blob->u8vector/shared pixels)
-                                w h c   w2 h2)))
+         (resized (image-resize pixels  w h c   w2 h2)))
     (write-png resized w2 h2 c)))
