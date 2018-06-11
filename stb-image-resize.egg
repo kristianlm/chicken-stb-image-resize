@@ -1,5 +1,7 @@
 ;; -*- scheme -*-
 ((author "Kristian Lein-Mathisen")
+ (synopsis "resize raw u8/u16/u32/f32-vector images")
+ (category graphics)
  (license public-domain)
  (dependencies srfi-4)
  (components (extension stb-image-resize
